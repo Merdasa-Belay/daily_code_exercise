@@ -1,6 +1,5 @@
 from coffee_machine_data import MENU, resources
 
-
 is_espresso = MENU['espresso']
 is_latte = MENU['latte']
 is_cappuccino = MENU['cappuccino']
@@ -79,11 +78,13 @@ end_game = True
 income = 0
 while end_game:
     order = (input("What would you like? (espresso/latte/cappuccino): "))
-    if order == "report":
+    if order == "off":
+        end_game = False
+    elif order == "report":
 
         report(per_income=income, new_resources=resources)
 
-    if order == "latte":
+    elif order == "latte":
 
         if resources['water'] > latte['water']:
             if resources['water'] > latte['milk']:
@@ -174,7 +175,7 @@ while end_game:
                         print("Here is your cappuccino ☕️. Enjoy!")
                         # print(resources)
                     elif money_sums == cappuccino_cost:
-                        income += cappuccino_cost
+                        income += cappuccino_cost 
                         print("Here is your cappuccino ☕️. Enjoy!")
                         # print(resources)
                     else:
