@@ -7,9 +7,11 @@ is_cappuccino = MENU['cappuccino']
 
 
 espresso = is_espresso['ingredients']
+espresso_cost = is_espresso['cost']
 latte = is_latte['ingredients']
+latte_cost = is_latte['cost']
 cappuccino = is_cappuccino['ingredients']
-
+cappuccino_cost = is_cappuccino['cost']
 
 quarter_c = 0.25
 dimes_c = 0.10
@@ -48,13 +50,14 @@ def resource_calculator_espresso(resources_needed, order_ingredient):
         return f"Sorry there is not enough water."
 
 
-def report(resources):
+def report(per_income, new_resources):
 
-    print(f"water: {resources['water']}")
+    print(f"water: {new_resources['water']}")
 
-    print(f"Milk: {resources['milk']}")
+    print(f"Milk: {new_resources['milk']}")
 
-    print(f"coffee: {resources['coffee']}")
+    print(f"coffee: {new_resources['coffee']}")
+    print(f"cost: ${per_income}")
 
 
 def is_coin_sum(quarter, dimes, nickles, pennies):
@@ -73,12 +76,12 @@ def coin_calculator(quarter, dimes, nickles, pennies):
 
 end_game = True
 
-
+income = 0
 while end_game:
     order = (input("What would you like? (espresso/latte/cappuccino): "))
     if order == "report":
 
-        report(resources)
+        report(per_income=income, new_resources=resources)
 
     if order == "latte":
 
@@ -98,12 +101,14 @@ while end_game:
 
                     resources = resource_calculator(
                         resources_needed=resources, order_ingredient=latte)
-                    if money_sums > 2.50:
-                        change = money_sums - 2.50
+                    if money_sums > latte_cost:
+                        change = money_sums - latte_cost
+                        income += latte_cost
                         print(f"Here is ${change:.2f} in change.")
                         print("Here is your latte ☕️. Enjoy!")
                         # print(resources)
-                    elif money_sums == 2.50:
+                    elif money_sums == latte_cost:
+                        income += latte_cost
                         print("Here is your latte ☕️. Enjoy!")
                         # print(resources)
                     else:
@@ -129,12 +134,14 @@ while end_game:
 
                 resources = resource_calculator_espresso(
                     resources_needed=resources, order_ingredient=espresso)
-                if money_sums > 1.50:
-                    change = money_sums - 1.50
+                if money_sums > espresso_cost:
+                    change = money_sums - espresso_cost
+                    income += espresso_cost
                     print(f"Here is ${change:.2f} in change.")
                     print("Here is your espresso ☕️. Enjoy!")
                     # print(resources)
-                elif money_sums == 1.50:
+                elif money_sums == espresso_cost:
+                    income += espresso_cost
                     print("Here is your espresso ☕️. Enjoy!")
                     # print(resources)
                 else:
@@ -160,12 +167,14 @@ while end_game:
 
                     resources = resource_calculator(
                         resources_needed=resources, order_ingredient=latte)
-                    if money_sums > 2.50:
-                        change = money_sums - 2.50
+                    if money_sums > cappuccino_cost:
+                        change = money_sums - cappuccino_cost
+                        income += cappuccino_cost
                         print(f"Here is ${change:.2f} in change.")
                         print("Here is your cappuccino ☕️. Enjoy!")
                         # print(resources)
-                    elif money_sums == 2.50:
+                    elif money_sums == cappuccino_cost:
+                        income += cappuccino_cost
                         print("Here is your cappuccino ☕️. Enjoy!")
                         # print(resources)
                     else:
