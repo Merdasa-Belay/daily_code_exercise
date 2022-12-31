@@ -105,3 +105,18 @@ h3 {
   font-family: adobe-garamond-pro, HelveticaNeue-Light, "Helvetica Neue Light",
     "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
+.bottom-container {
+  color: #eaf6f6;
+  background-color: #66bfbf;
+  height: 100px;
+  font-family: "Montserrat", sans-serif;
+}
+.footer-link {
+  color: #11999e;
+}
+.contact-button {
+  background-color: #11999e;
+  color: white;
+  height: 30px;
+  width: 120px;
+}
