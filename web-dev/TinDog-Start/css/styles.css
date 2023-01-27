@@ -41,3 +41,15 @@ h1 {
 
   transform: rotate(30deg);
 }
+.features-list {
+  padding: 10% 10%;
+  line-height: 1.5;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+  color: gray;
+  font-weight: normal;
+  text-align: center;
+}
