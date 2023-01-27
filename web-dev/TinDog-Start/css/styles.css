@@ -41,15 +41,28 @@ h1 {
 
   transform: rotate(30deg);
 }
+/* Features section  */
+#features {
+  padding: 7% 15%;
+}
 .features-list {
-  padding: 10% 10%;
+  padding: 10% 7%;
   line-height: 1.5;
   text-align: center;
 }
 
 p {
   font-size: 1rem;
-  color: gray;
+  color: #8f8f8f;
   font-weight: normal;
   text-align: center;
+}
+
+.icon {
+  color: #ef8172;
+  margin-bottom: 2rem;
+}
+
+.icon:hover {
+  color: #ff4c68;
 }
