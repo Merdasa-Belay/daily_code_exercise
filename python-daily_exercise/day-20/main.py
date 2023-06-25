@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 from turtle import Turtle, Screen
 import time
+from food import Food
 from snake import Snake
 
 
@@ -9,7 +10,7 @@ screen.bgcolor("black")
 screen.setup(width=600, height=600)
 screen.tracer(0)
 snake = Snake()
-
+food = Food()
 
 screen.listen()
 screen.onkey(snake.up, "Up")
@@ -24,5 +25,6 @@ while GAME_IS_ON:
     screen.update()
     time.sleep(0.1)
     snake.move()
+
 
 screen.exitonclick()
