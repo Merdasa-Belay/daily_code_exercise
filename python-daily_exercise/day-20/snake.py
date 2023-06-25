@@ -21,6 +21,7 @@ class Snake:
             self.snake.penup()
             self.snake.goto(position)
             self.snake_index.append(self.snake)
+            self.head = self.snake_index[0]
 
     def move(self):
         for seg in range(len(self.snake_index) - 1, 0, -1):
@@ -28,20 +29,20 @@ class Snake:
             new_y = self.snake_index[seg - 1].ycor()
             self.snake_index[seg].goto(new_x, new_y)
 
-        self.snake_index[0].forward(20)
+        self.head.forward(20)
 
     def up(self):
-        if self.snake_index[0].heading() != DOWN:
-            self.snake_index[0].setheading(UP)
+        if self.head.heading() != DOWN:
+            self.head.setheading(UP)
 
     def down(self):
-        if self.snake_index[0].heading() != UP:
-            self.snake_index[0].setheading(DOWN)
+        if self.head.heading() != UP:
+            self.head.setheading(DOWN)
 
     def right(self):
-        if self.snake_index[0].heading() != LEFT:
-            self.snake_index[0].setheading(RIGHT)
+        if self.head.heading() != LEFT:
+            self.head.setheading(RIGHT)
 
     def left(self):
-        if self.snake_index[0].heading() != RIGHT:
-            self.snake_index[0].setheading(LEFT)
+        if self.head.heading() != RIGHT:
+            self.head.setheading(LEFT)
