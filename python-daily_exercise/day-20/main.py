@@ -39,4 +39,12 @@ while GAME_IS_ON:
     if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         GAME_IS_ON = False
         scoreboard.game_over()
+# TODO- 3 Detect collision with tail
+    for seg in snake.snake_index:
+        if seg == snake.head:
+            pass
+        elif snake.head.distance(seg) < 10:
+            GAME_IS_ON = False
+            scoreboard.game_over()
+
 screen.exitonclick()
