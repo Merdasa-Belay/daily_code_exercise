@@ -11,12 +11,14 @@ screen.title("Pong game")
 screen.tracer(0)
 ball = Ball()
 
-paddle = Paddle()
+r_paddle = Paddle((350, 0))
+l_paddle = Paddle((-350, 0))
 screen.listen()
-screen.onkey(paddle.up, "Up")
-screen.onkey(paddle.down, "Down")
+screen.onkey(r_paddle.up, "Up")
+screen.onkey(r_paddle.down, "Down")
+screen.onkey(l_paddle.up, "w")
+screen.onkey(l_paddle.down, "s")
 GAME_IS_ON = True
 while GAME_IS_ON:
-  screen.update()
-
+    screen.update()
 screen.exitonclick()
