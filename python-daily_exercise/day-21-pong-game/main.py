@@ -32,6 +32,18 @@ while GAME_IS_ON:
 
     # TODO Detecting collision with r_paddle
 
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 340 or ball.distance(l_paddle) < 50 and ball.xcor() < 340:
+    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
         ball.bounce_x()
+
+    # TODO Detect when r_paddle misses
+
+    if ball.xcor() > 380:
+        ball.refresh()
+
+    # TODO Detect when l_paddle misses
+
+    if ball.xcor() < -380:
+        ball.refresh()
+
+
 screen.exitonclick()
