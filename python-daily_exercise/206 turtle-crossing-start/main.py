@@ -12,6 +12,7 @@ player1 = Player()
 car_manager = CarManager()
 screen.listen()
 screen.onkey(player1.up, "Up")
+scoreboared = Scoreboard()
 game_is_on = True
 while game_is_on:
     time.sleep(0.1)
@@ -22,12 +23,14 @@ while game_is_on:
     for car in car_manager.all_cars:
         if car.distance(player1) < 20:
             game_is_on = False
+            scoreboared.game_over()
 
 # TODO Detect a successful crossing
 
     if player1.is_at_finish_line():
         player1.go_to_start()
         car_manager.level_up()
+        scoreboared.leveling_up()
 
 
 screen.exitonclick()
