@@ -27,6 +27,7 @@ while game_is_on:
 
     if player1.is_at_finish_line():
         player1.go_to_start()
+        car_manager.level_up()
 
 
 screen.exitonclick()
