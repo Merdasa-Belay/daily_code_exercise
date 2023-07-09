@@ -34,6 +34,11 @@ class Snake:
         self.snake.goto(position)
         self.snake_index.append(self.snake)
 
+    def reset(self):
+        self.snake_index.clear()
+        self.create_snake()
+        self.head = self.snake_index[0]
+
     def extend(self):
         # TODO add new segment to the snake
         self.add_segment(self.snake_index[-1].position())
